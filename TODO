@@ -1,0 +1,37 @@
+BDD
+User : 
+ID* ok
+email * ok
+password* ok
+role* ok
+age- ok
+sexe- ok
+ville- ok
+nom- ok
+prénom- ok
+type de maladie- ok
+traitement- ok
+spécialité - ok
+médecin id 
+
+Daily data: 
+id *
+user_id*
+date_jour*
+forme physique*
+forme physique détail
+forme psychologique*
+forme psychologique détail
+douleur*
+douleur détail
+symptômes*
+symptômes détails
+temps du jours
+déplacement ( si la personne part ponctuellement ) 
+lieu déplacement
+repas
+divers
+
+
+
+update profil, comment eviter le reset des données quand on modifie juste un champ?
