@@ -29,11 +29,10 @@ if (isset($_POST['update-account-roleUser']))
 	$updateUser->setBirthday($day, $month, $year);
 	$updateUser->setMaladie($maladie);
 	$updateUser->setTraitement($traitement);
-	$updateUser->setMedic($medic);
 	updateUser($updateUser);
 
 	message_flash("Votre profil a été mis à jour", 'success');
-	header('Location: '.SITE_URL.'account&id='.$user->id);
+	header('Location: '.SITE_URL.'update-account&id='.$user->id);
 	exit();
 }
  
@@ -53,14 +52,6 @@ if (isset($_POST['update-account-roleMedic']))
 	header('Location: '.SITE_URL.'account&id='.$user->id);
 	exit();
 }
-//On inclut le modèle
-//include(dirname(__FILE__).'/../modeles/news.php');
- 
-/* On effectue ici diverses actions, comme supprimer des news, par exemple. ;)
-Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'en rajouter. */
- 
-//On récupère les news
-//$news = recuperer_news();
  
 //On inclut la vue
 include('views/update-account.view.php');

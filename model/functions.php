@@ -248,8 +248,7 @@ if (!function_exists('updateUser'))
 								sexe = :sexe,
 								birthday = :birthday,
 								maladie = :maladie,
-								traitement = :traitement,
-								medic = :medic
+								traitement = :traitement
 							WHERE id = :id");
 		$q->execute(array(
 					'id' => $user->getId(),
@@ -259,8 +258,7 @@ if (!function_exists('updateUser'))
 					'sexe' => $user->getSexe(),
 					'birthday' => $user->getBirthday(),
 					'maladie' => $user->getMaladie(),
-					'traitement' => $user->getTraitement(),
-					'medic' => $user->getMedic()
+					'traitement' => $user->getTraitement()
 		));
 	}		
 }
@@ -284,6 +282,98 @@ if (!function_exists('updateMedic'))
 					'nickname' => $medic->getNickname(),
 					'city' => $medic->getCity(),
 					'speciality' => $medic->getSpeciality()
+		));
+	}		
+}
+
+
+
+//Creation donnée du jour
+if (!function_exists('createDailyData')) 
+{
+	function createDailyData($data)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("INSERT INTO daily_data(user_id, physical_form, physical_form_desc, psycho_form, psycho_form_desc, pain, pain_desc, daily_date, other_city, temperature, weather)
+							VALUES(:user_id, :physical_form, :physical_form_desc, :psycho_form, :psycho_form_desc, :pain, :pain_desc, :daily_date, :other_city, :temperature, :weather)");
+		$q->execute(array(
+					'user_id' => $data->getUser_id(),
+					'other_city' => $data->getOther_city(),
+					'physical_form' => $data->getPhysical_form(),
+					'physical_form_desc' => $data->getPhysical_form_desc(),
+					'psycho_form' => $data->getPsycho_form(),
+					'psycho_form_desc' => $data->getPsycho_form_desc(),
+					'pain' => $data->getPain(),
+					'pain_desc' => $data->getPain_desc(),
+					'daily_date' => $data->getDaily_date(),
+					'temperature' => $data->getTemperature(),
+					'weather' => $data->getWeather()
+		));
+	}		
+}
+
+
+//verification donnée du jour en bdd
+if (!function_exists('daily_data_in_bdd')) 
+{
+	function daily_data_in_bdd($date, $user_id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT $user_id FROM daily_data WHERE daily_date = ?");
+		$q->execute(array($date));
+
+		$count = $q->rowCount();
+		
+		$q->closeCursor();
+
+		return $count;
+	}
+}
+
+//Trouve donné du jour avec user_id et date du jour
+if (!function_exists('find_daily_data_id')) 
+{
+	function find_daily_data_id($date, $user_id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT * FROM daily_data 
+							WHERE daily_date = :daily_date 
+							AND user_id = :user_id");
+		$q->execute(array(
+						'daily_date' => $date,
+						'user_id' => $user_id
+			));
+
+		$data = $q->fetch(PDO::FETCH_OBJ);
+
+		$q->closeCursor();
+
+		return $data;
+	}		
+}
+
+//Add donné du jour 2e formulaire
+if (!function_exists('updateDailyData')) 
+{
+	function updateDailyData($data)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("UPDATE daily_data
+							SET symptom = :symptom,
+								symptom_desc = :symptom_desc,
+								lunch = :lunch,
+								other = :other
+							WHERE id = :id");
+		$q->execute(array(
+					'id' => $data->getId(),
+					'symptom' => $data->getSymptom(),
+					'symptom_desc' => $data->getSymptom_desc(),
+					'lunch' => $data->getLunch(),
+					'other' => $data->getOther()
 		));
 	}		
 }

@@ -9,7 +9,6 @@ class User extends Person
 
     private $city;
 
-    private $medic;
 
 
 
@@ -38,21 +37,6 @@ class User extends Person
     public function setTraitement($traitement) {
 
         $this->traitement = $traitement;
-
-        return $this;
-
-    }
-
-    public function getMedic() {
-
-        return $this->medic;
-
-    }
-
-
-    public function setMedic($medic) {
-
-        $this->medic = $medic;
 
         return $this;
 

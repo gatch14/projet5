@@ -4,6 +4,8 @@ include('model/guest.php');
 require('model/functions.php');
 require('model/constants.php');
 
+use Acme\Domain\User;
+use Acme\DAO\UserDAO;
 
 
 	// Si le formulaire a  été envoyé
@@ -14,15 +16,17 @@ require('model/constants.php');
 			!empty($_POST['password'])) 
 		{
 			extract($_POST);
-			$user = find($identifiant);
+
+			$userDAO = new UserDAO;
+			$user = $userDAO->find($identifiant);
 
 			if($user && password_verify($password, $user->password))
 			{
 				//Récuperation id, pseudo quand on se connecte
 				$_SESSION['user_id'] = $user->id;
-
-				header('Location: '.SITE_URL.'home&id='.$user->id);
-				exit();
+				print_r($user);
+				/*header('Location: '.SITE_URL.'home&id='.$user->id);
+				exit();*/
 			} else
 			{
 				message_flash("Pseudo, email ou mot de passe incorrecte!", 'danger');

@@ -90,12 +90,7 @@
 			<label class="control-label" for="traitement">Nom du traitement (médicament):</label>
 			<input type="text" value="<?= echap($user->traitement) ?>" class="form-control" name="traitement" id="traitement">
 		</div>
-
-		<!-- Champ medecin -->
-		<div class="form-group">
-			<label class="control-label" for="medic">Nom du medecin:</label>
-			<input type="text" value="<?= echap($user->medic) ?>" class="form-control" name="medic" id="medic">
-		</div>
+		
 		<?php endif; ?>
 
 		<?php if ($user->role == "roleMedic") : ?>

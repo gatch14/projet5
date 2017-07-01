@@ -19,9 +19,11 @@
               <li class="dropdown <?= class_active('account') ?><?= class_active('update-account') ?>">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profil <span class="caret"></span></a>
                   <ul class="dropdown-menu">
+                    <?php if ($user->role == "roleUser"): ?>
                     <li>
-                       <a href="?page=account&id=<?= $_SESSION['user_id']?>">Voir mon profil</a>
+                       <a href="?page=add-medic&id=<?= $_SESSION['user_id']?>">Ajouter médecin</a>
                     </li>
+                    <?php endif; ?>
                     <li>
                        <a href="?page=update-account&id=<?= $_SESSION['user_id']?>">Modifier mon profil</a>
                     </li>
