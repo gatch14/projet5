@@ -205,7 +205,7 @@ if (!function_exists('createUser'))
 					));
 	}		
 }
-
+/*
 //trouve un utilisateur par pseudo ou email
 if (!function_exists('findPseudo')) 
 {
@@ -220,8 +220,8 @@ if (!function_exists('findPseudo'))
 
 		return $data;
 	}		
-}
-
+}*/
+/*
 //trouve un utilisateur actif par pseudo ou email
 if (!function_exists('activeUser')) 
 {
@@ -232,7 +232,7 @@ if (!function_exists('activeUser'))
 		$q = $bdd->prepare("UPDATE users SET active = '1', token = '' WHERE pseudo = ?");
 		$q->execute(array($pseudo));
 	}		
-}
+}*/
 
 //Update profil utilisateur
 if (!function_exists('updateUser')) 

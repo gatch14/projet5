@@ -5,10 +5,6 @@ require('model/functions.php');
 require('model/constants.php');
 use Acme\Domain\DailyData;
 use Acme\Domain\wMeteo;
-use Acme\Domain\User;
-use Acme\Domain\Medic;
-use Acme\DAO\MedicDAO;
-use Acme\DAO\RelationDAO;
 use Acme\DAO\UserDAO;
 
 

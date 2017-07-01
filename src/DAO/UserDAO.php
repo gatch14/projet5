@@ -129,5 +129,26 @@ class UserDAO
 		));
 	}	
 
-	
+
+	//trouve un utilisateur par pseudo
+	public function findPseudo($pseudo)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare('SELECT email, password FROM users WHERE pseudo = ?');
+		$q->execute(array($pseudo));
+
+		$data = $q->fetch(PDO::FETCH_OBJ);
+
+		return $data;
+	}
+
+	//trouve un utilisateur actif par pseudo ou email
+	public function activeUser($pseudo)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("UPDATE users SET active = '1', token = '' WHERE pseudo = ?");
+		$q->execute(array($pseudo));
+	}
 }
