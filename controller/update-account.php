@@ -5,11 +5,14 @@ require('model/functions.php');
 require('model/constants.php');
 use Acme\Domain\User;
 use Acme\Domain\Medic;
+use Acme\DAO\UserDAO;
+use Acme\DAO\MedicDAO;
 
 
 if ($_SESSION['user_id'] == $_GET['id']) 
 {
-	$user = find_user_id($_SESSION['user_id']);
+	$userDAO = new UserDAO;
+	$user = $userDAO->findUserId($_SESSION['user_id']);
 } else
 {
 		header('Location: index.php');
@@ -29,7 +32,7 @@ if (isset($_POST['update-account-roleUser']))
 	$updateUser->setBirthday($day, $month, $year);
 	$updateUser->setMaladie($maladie);
 	$updateUser->setTraitement($traitement);
-	updateUser($updateUser);
+	$userDAO->updateUser($updateUser);
 
 	message_flash("Votre profil a été mis à jour", 'success');
 	header('Location: '.SITE_URL.'update-account&id='.$user->id);
@@ -46,7 +49,10 @@ if (isset($_POST['update-account-roleMedic']))
 	$updateMedic->setNickname($nickname);
 	$updateMedic->setCity($city);
 	$updateMedic->setSpeciality($speciality);
-	updateMedic($updateMedic);
+
+
+	$MedicDAO = new MedicDAO;
+	$MedicDAO->updateMedic($updateMedic);
 
 	message_flash("Votre profil a été mis à jour", 'success');
 	header('Location: '.SITE_URL.'account&id='.$user->id);

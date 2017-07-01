@@ -162,5 +162,47 @@ class UserDAO
 				'token' => $token,
 				'id' => $id
 		));
+	}
+
+	//edit mot de passe user
+	public function editPassword($password, $pseudo)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("UPDATE users 
+							SET password = :password, token = :token 
+							WHERE pseudo = :pseudo");
+
+		$q->execute(array(
+				'password' => $password,
+				'token' => "",
+				'pseudo' => $pseudo
+		));
+	}		
+
+	//Update profil utilisateur
+	public function updateUser($user)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("UPDATE users
+							SET name = :name,
+								nickname = :nickname,
+								city = :city,
+								sexe = :sexe,
+								birthday = :birthday,
+								maladie = :maladie,
+								traitement = :traitement
+							WHERE id = :id");
+		$q->execute(array(
+					'id' => $user->getId(),
+					'name' => $user->getName(),
+					'nickname' => $user->getNickname(),
+					'city' => $user->getCity(),
+					'sexe' => $user->getSexe(),
+					'birthday' => $user->getBirthday(),
+					'maladie' => $user->getMaladie(),
+					'traitement' => $user->getTraitement()
+		));
 	}	
 }

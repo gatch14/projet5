@@ -1,6 +1,4 @@
 <?php
-use Acme\Domain\User;
-use Acme\Domain\Medic;
 //funciton echap pour htmlspecialchars
 if (!function_exists('echap')) 
 {
@@ -104,7 +102,7 @@ if (!function_exists('class_active'))
 		}
 	}
 }
-
+/*
 //Trouve un utilisateur par id et on cherche ses infos dans la bdd sous forme d objet
 if (!function_exists('find_user_id')) 
 {
@@ -121,7 +119,7 @@ if (!function_exists('find_user_id'))
 
 		return $data;
 	}		
-}
+}*/
 
 //Vérification utilisateur connecté
 if (!function_exists('logged')) 
@@ -151,7 +149,7 @@ if (!function_exists('find'))
 		return $data;
 	}		
 }*/
-
+/*
 //ajout du token user
 if (!function_exists('addToken')) 
 {
@@ -166,7 +164,7 @@ if (!function_exists('addToken'))
 		));
 	}		
 }
-
+*//*
 //edit mot de passe user
 if (!function_exists('editPassword')) 
 {
@@ -184,7 +182,7 @@ if (!function_exists('editPassword'))
 				'pseudo' => $pseudo
 		));
 	}		
-}
+}*/
 
 
 //Creation utilisateur
@@ -233,7 +231,7 @@ if (!function_exists('activeUser'))
 		$q->execute(array($pseudo));
 	}		
 }*/
-
+/*
 //Update profil utilisateur
 if (!function_exists('updateUser')) 
 {
@@ -285,7 +283,7 @@ if (!function_exists('updateMedic'))
 		));
 	}		
 }
-
+*/
 
 /*
 //Creation donnée du jour

@@ -3,13 +3,16 @@
 require('model/functions.php');
 require('model/constants.php');
 
+use Acme\DAO\UserDAO;
+$userDAO = new UserDAO;
+
 if($_GET['pseudo'] && $_GET['token'])
 {
 	$pseudo = $_GET['pseudo'];
 	$token = $_GET['token'];
 
-	if(is_in_bdd('pseudo', $pseudo, 'users') &&
-	   is_in_bdd('token', $token, 'users'))
+	if($userDAO->isInBdd('pseudo', $pseudo, 'users') &&
+	   $userDAO->isInBdd('token', $token, 'users'))
 	{
 
 		//Reinit mdp
@@ -38,8 +41,9 @@ if($_GET['pseudo'] && $_GET['token'])
 				if (count($errors) == 0) 
 				{
 					$password = password_hash($password, PASSWORD_BCRYPT);
-
-					$editPass = editPassword($password, $pseudo);
+					
+					$userDAO = new UserDAO;
+					$editPass = $userDAO->editPassword($password, $pseudo);
 
 					message_flash("Modification ok!", 'success');
 

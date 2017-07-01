@@ -65,6 +65,26 @@ class MedicDAO
 		$q->closeCursor();
 
 		return $data;
-	}	
+	}
+
+	//Update profil Medic
+	public function updateMedic($medic)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("UPDATE users
+							SET name = :name,
+								nickname = :nickname,
+								city = :city,
+								speciality = :speciality
+							WHERE id = :id");
+		$q->execute(array(
+					'id' => $medic->getId(),
+					'name' => $medic->getName(),
+					'nickname' => $medic->getNickname(),
+					'city' => $medic->getCity(),
+					'speciality' => $medic->getSpeciality()
+		));
+	}
 	
 }
