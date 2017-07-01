@@ -24,7 +24,7 @@ class MedicDAO
 		return $count;
 	}
 
-	//Trouve un medecin par le nom et on cherche ses infos dans la bdd sous forme d objet
+	//Trouve un medecin par le mail et on cherche ses infos dans la bdd sous forme d objet
 	public function findMedicByEmail($email)
 	{
 		global $bdd;

@@ -70,12 +70,24 @@ use Acme\DAO\MedicDAO;
 				if ($role == "roleMedic") {
 					$medic = new Medic;
 					$medicDAO = new MedicDAO;
-					$medic->setPseudo($pseudo);
-					$medic->setEmail($email);
-					$medic->setPassword($password);
-					$medic->setToken($token);
+					$activeMedic = $medicDAO->findMedicByEmail($email);
+					if ($activeMedic->active == 1) 
+					{
+						message_flash("Votre compte est déja activé", 'warning');
 
-					$medicDAO->updateMedicIfInBdd($medic);
+						header('Location: index.php');
+						exit();
+					} else 
+					{
+
+						$medic->setPseudo($pseudo);
+						$medic->setEmail($email);
+						$medic->setPassword($password);
+						$medic->setToken($token);
+
+						$medicDAO->updateMedicIfInBdd($medic);
+
+					}
 				} else
 				{					
 					$user = new User();
@@ -89,7 +101,7 @@ use Acme\DAO\MedicDAO;
 				}
 
 				//envoi du mail d activivation
-				$to = $email;
+				/*$to = $email;
 				$subject = 'Activation de votre comte';
 
 				ob_start();
@@ -99,7 +111,7 @@ use Acme\DAO\MedicDAO;
 				$headers = 'MIME-Version: 1.0' . "\r\n";
 				$headers = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-				mail($to, $subject, $content, $headers);
+				mail($to, $subject, $content, $headers);*/
 
 				message_flash("Mail d'activation envoyé!", 'success');
 
