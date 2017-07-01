@@ -13,7 +13,7 @@ if (!function_exists('echap'))
 	}
 }
 
-
+/*
 //verification bdd si pseudo et email sont deja present
 if (!function_exists('is_in_bdd')) 
 {
@@ -30,7 +30,7 @@ if (!function_exists('is_in_bdd'))
 
 		return $count;
 	}
-}
+}*/
 
 
 

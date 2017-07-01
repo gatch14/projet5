@@ -151,4 +151,16 @@ class UserDAO
 		$q = $bdd->prepare("UPDATE users SET active = '1', token = '' WHERE pseudo = ?");
 		$q->execute(array($pseudo));
 	}
+
+	//ajout du token user
+	public function addToken($token, $id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare('UPDATE users SET token = :token WHERE id = :id');
+		$q->execute(array(
+				'token' => $token,
+				'id' => $id
+		));
+	}	
 }

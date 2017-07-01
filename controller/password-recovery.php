@@ -3,6 +3,8 @@ require('model/functions.php');
 require('model/constants.php');
 
 
+use Acme\DAO\UserDAO;
+$userDAO = new UserDAO;
 
 //recup mot d epasse
 if(isset($_POST['recovery-password'])) 
@@ -10,13 +12,13 @@ if(isset($_POST['recovery-password']))
 	if(!empty($_POST['email'])) 
 	{
 		extract($_POST);
-		$user = find($email);
-		if(is_in_bdd('email', $email, 'users'))
+		$user = $userDAO->find($email);
+		if($userDAO->isInBdd('email', $email, 'users'))
 		{
 
 			$token = sha1($user->email+$user->pseudo+time());
 		
-			$userToken = addToken($token, $user->id);
+			$userToken = $userDAO->addToken($token, $user->id);
 
 			$urlToken = SITE_URL.'reset-password&amp;pseudo='.$user->pseudo.'&amp;token='.$token;
 
