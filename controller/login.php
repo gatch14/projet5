@@ -24,9 +24,8 @@ use Acme\DAO\UserDAO;
 			{
 				//Récuperation id, pseudo quand on se connecte
 				$_SESSION['user_id'] = $user->id;
-				print_r($user);
-				/*header('Location: '.SITE_URL.'home&id='.$user->id);
-				exit();*/
+				header('Location: '.SITE_URL.'home&id='.$user->id);
+				exit();
 			} else
 			{
 				message_flash("Pseudo, email ou mot de passe incorrecte!", 'danger');

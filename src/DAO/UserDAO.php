@@ -50,6 +50,84 @@ class UserDAO
 		$data = $q->fetch(PDO::FETCH_OBJ);
 
 		return $data;
-	}		
+	}
+
+	//verification donnée du jour en bdd
+	public function dailyDataInBdd($date, $user_id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT $user_id FROM daily_data WHERE daily_date = ?");
+		$q->execute(array($date));
+
+		$count = $q->rowCount();
+		
+		$q->closeCursor();
+
+		return $count;
+	}
+
+	//Trouve donné du jour avec user_id et date du jour
+	public function findDailyDataId($date, $user_id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT * FROM daily_data 
+							WHERE daily_date = :daily_date 
+							AND user_id = :user_id");
+		$q->execute(array(
+						'daily_date' => $date,
+						'user_id' => $user_id
+			));
+
+		$data = $q->fetch(PDO::FETCH_OBJ);
+
+		$q->closeCursor();
+
+		return $data;
+	}
+
+	//Creation donnée du jour
+	public function createDailyData($data)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("INSERT INTO daily_data(user_id, physical_form, physical_form_desc, psycho_form, psycho_form_desc, pain, pain_desc, daily_date, other_city, temperature, weather)
+							VALUES(:user_id, :physical_form, :physical_form_desc, :psycho_form, :psycho_form_desc, :pain, :pain_desc, :daily_date, :other_city, :temperature, :weather)");
+		$q->execute(array(
+					'user_id' => $data->getUser_id(),
+					'other_city' => $data->getOther_city(),
+					'physical_form' => $data->getPhysical_form(),
+					'physical_form_desc' => $data->getPhysical_form_desc(),
+					'psycho_form' => $data->getPsycho_form(),
+					'psycho_form_desc' => $data->getPsycho_form_desc(),
+					'pain' => $data->getPain(),
+					'pain_desc' => $data->getPain_desc(),
+					'daily_date' => $data->getDaily_date(),
+					'temperature' => $data->getTemperature(),
+					'weather' => $data->getWeather()
+		));
+	}
+
+	//Add donné du jour 2e formulaire
+	public function updateDailyData($data)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("UPDATE daily_data
+							SET symptom = :symptom,
+								symptom_desc = :symptom_desc,
+								lunch = :lunch,
+								other = :other
+							WHERE id = :id");
+		$q->execute(array(
+					'id' => $data->getId(),
+					'symptom' => $data->getSymptom(),
+					'symptom_desc' => $data->getSymptom_desc(),
+					'lunch' => $data->getLunch(),
+					'other' => $data->getOther()
+		));
+	}	
+
 	
 }

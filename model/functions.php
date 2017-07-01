@@ -131,7 +131,7 @@ if (!function_exists('logged'))
 		return isset($_SESSION['user_id']) || isset($_SESSION['pseudo']);
 	}		
 }
-
+/*
 //trouve un utilisateur par pseudo ou email
 if (!function_exists('find')) 
 {
@@ -150,7 +150,7 @@ if (!function_exists('find'))
 
 		return $data;
 	}		
-}
+}*/
 
 //ajout du token user
 if (!function_exists('addToken')) 
@@ -287,7 +287,7 @@ if (!function_exists('updateMedic'))
 }
 
 
-
+/*
 //Creation donnée du jour
 if (!function_exists('createDailyData')) 
 {
@@ -312,8 +312,8 @@ if (!function_exists('createDailyData'))
 		));
 	}		
 }
-
-
+*/
+/*
 //verification donnée du jour en bdd
 if (!function_exists('daily_data_in_bdd')) 
 {
@@ -353,8 +353,8 @@ if (!function_exists('find_daily_data_id'))
 
 		return $data;
 	}		
-}
-
+}*/
+/*
 //Add donné du jour 2e formulaire
 if (!function_exists('updateDailyData')) 
 {
@@ -377,3 +377,4 @@ if (!function_exists('updateDailyData'))
 		));
 	}		
 }
+*/

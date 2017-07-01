@@ -37,3 +37,9 @@ http://www.weirdog.com/blog/php/php-xml-previsions-meteo.html
 
 update profil, comment remettre les données sur liste deroulante?
 a faire:
+
+
+git:
+git add -A
+git commit -m "mettre le nom duu commit"
+git push

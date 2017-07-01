@@ -5,14 +5,20 @@ require('model/functions.php');
 require('model/constants.php');
 use Acme\Domain\DailyData;
 use Acme\Domain\wMeteo;
+use Acme\Domain\User;
+use Acme\Domain\Medic;
+use Acme\DAO\MedicDAO;
+use Acme\DAO\RelationDAO;
+use Acme\DAO\UserDAO;
 
 
 
 if ($_SESSION['user_id'] == $_GET['id']) 
 {
-	$user = find_user_id($_SESSION['user_id']);
-	$daily_data = daily_data_in_bdd(date('Y-m-d'), $user->id);
-	$user_daily_data = find_daily_data_id(date('Y-m-d'), $user->id);
+	$userDAO = new UserDAO;
+	$user = $userDAO->findUserId($_SESSION['user_id']);	
+	$daily_data = $userDAO->dailyDataInBdd(date('Y-m-d'), $user->id);
+	$user_daily_data = $userDAO->findDailyDataId(date('Y-m-d'), $user->id);
 } else
 {
 		header('Location: index.php');
@@ -51,7 +57,7 @@ if (isset($_POST['daily-form']))
 		$DailyData->setTemperature($temperature);
 		$DailyData->setWeather($weather);
 
-		createDailyData($DailyData);
+		$userDAO->createDailyData($DailyData);
 
 		message_flash("Votre forme du jour a été enregistré, merci!", 'success');
 
@@ -86,18 +92,18 @@ if (isset($_POST['daily-form']))
 if (isset($_POST['daily-form-desc'])) 
 {
 	extract($_POST);
-	print_r($user_daily_data->id);
 	$DailyData = new DailyData();
 	$DailyData->setId($user_daily_data->id);
 	$DailyData->setSymptom($symptom);
 	$DailyData->setSymptom_desc($symptom_desc);
 	$DailyData->setLunch($lunch);
 	$DailyData->setOther($other);
-	updateDailyData($DailyData);
+	$userDAO->updateDailyData($DailyData);
 
 	message_flash("Vos données ont été enregistrées, merci!", 'success');
 
 	header('Location: '.SITE_URL.'home&id='.$user->id);
+	exit();
 }
 
 require('views/home.view.php');

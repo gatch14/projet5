@@ -9,7 +9,6 @@
 	    <div class="container">
 			
 		  <h1>Bonjour <?= echap($user->pseudo) ?></h1>
-		  <p>Role <?= echap($user->role) ?></p>
 
 
 			<?php
