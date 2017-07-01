@@ -86,5 +86,23 @@ class MedicDAO
 					'speciality' => $medic->getSpeciality()
 		));
 	}
+
+	//Update compte Medic si deja inscrit en bdd par user
+	public function updateMedicIfInBdd($medic)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("UPDATE users
+							SET pseudo = :pseudo,
+								password = :password,
+								token = :token
+							WHERE email = :email");
+		$q->execute(array(
+					'email' => $medic->getEmail(),
+					'pseudo' => $medic->getPseudo(),
+					'password' => $medic->getPassword(),
+					'token' => $medic->getToken()
+		));
+	}
 	
 }

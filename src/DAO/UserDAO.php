@@ -204,5 +204,21 @@ class UserDAO
 					'maladie' => $user->getMaladie(),
 					'traitement' => $user->getTraitement()
 		));
-	}	
+	}
+
+	//Creation utilisateur
+	public function createUser($user)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("INSERT INTO users(pseudo, email, password, role, token)
+							VALUES(:pseudo, :email, :password, :role, :token)");
+		$q->execute(array(
+					'pseudo' => $user->getPseudo(),
+					'email' => $user->getEmail(),
+					'password' => $user->getPassword(),
+					'role' => $user->getRole(),
+					'token' => $user->getToken()
+		));
+	}
 }

@@ -4,6 +4,9 @@ include('model/guest.php');
 require('model/functions.php');
 require('model/constants.php');
 use Acme\Domain\User;
+use Acme\DAO\UserDAO;
+use Acme\Domain\Medic;
+use Acme\DAO\MedicDAO;
 
 
 	// Si le formulaire a  été envoyé
@@ -17,6 +20,7 @@ use Acme\Domain\User;
 		{
 			extract($_POST);
 			$errors = [];
+			$userDAO = new UserDAO;
 
 			//controle pseudo mini 3 caractères
 			if(mb_strlen($pseudo) < 3)
@@ -44,13 +48,14 @@ use Acme\Domain\User;
 			}
 
 			//controle pseudo deja utilisé
-			if(is_in_bdd('pseudo', $pseudo, 'users'))
+			if($userDAO->isInBdd('pseudo', $pseudo, 'users'))
 			{
 				$errors[] = "Pseudo déja utilisé";
 			}
 
 			//controle email deja utilisé
-			if(is_in_bdd('email', $email, 'users'))
+			if(($userDAO->isInBdd('email', $email, 'users') 
+							AND $role != "roleMedic"))
 			{
 				$errors[] = "Email déja utilisé";
 			}
@@ -61,14 +66,27 @@ use Acme\Domain\User;
 				$password = password_hash($password, PASSWORD_BCRYPT);
 
 				$token = sha1($pseudo.$email.$password);
-				$user = new User();
-				$user->setPseudo($pseudo);
-				$user->setEmail($email);
-				$user->setPassword($password);
-				$user->setRole($role);
-				$user->setToken($token);
 
-				createUser($user);
+				if ($role == "roleMedic") {
+					$medic = new Medic;
+					$medicDAO = new MedicDAO;
+					$medic->setPseudo($pseudo);
+					$medic->setEmail($email);
+					$medic->setPassword($password);
+					$medic->setToken($token);
+
+					$medicDAO->updateMedicIfInBdd($medic);
+				} else
+				{					
+					$user = new User();
+					$user->setPseudo($pseudo);
+					$user->setEmail($email);
+					$user->setPassword($password);
+					$user->setRole($role);
+					$user->setToken($token);
+
+					$userDAO->createUser($user);
+				}
 
 				//envoi du mail d activivation
 				$to = $email;
