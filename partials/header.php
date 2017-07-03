@@ -18,6 +18,9 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="libraries/uploadify/uploadify.css">
+  
+  <!-- include the calendar js and css files -->
+  <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

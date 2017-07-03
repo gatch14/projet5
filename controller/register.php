@@ -101,7 +101,7 @@ use Acme\DAO\MedicDAO;
 				}
 
 				//envoi du mail d activivation
-				/*$to = $email;
+				$to = $email;
 				$subject = 'Activation de votre comte';
 
 				ob_start();
@@ -111,7 +111,7 @@ use Acme\DAO\MedicDAO;
 				$headers = 'MIME-Version: 1.0' . "\r\n";
 				$headers = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-				mail($to, $subject, $content, $headers);*/
+				mail($to, $subject, $content, $headers);
 
 				message_flash("Mail d'activation envoyé!", 'success');
 

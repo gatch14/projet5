@@ -10,5 +10,23 @@
 	</script>
     <script src="assets/js/script.js"></script>
 
+    <script src="assets/js/zabuto_calendar.min.js"></script>
+    <!-- initialize the calendar on ready -->
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $("#my-calendar").zabuto_calendar(
+            {
+          ajax: {
+              url: "data.json",
+              modal: true
+          },          
+          cell_border: true,
+          today: true,
+          show_days: true,
+                language: "fr"
+            });
+        });
+    </script>
+
   </body>
 </html>

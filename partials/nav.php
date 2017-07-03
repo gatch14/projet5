@@ -16,6 +16,13 @@
               <li class="<?= class_active('home') ?>">
                 <a href="?page=home&id=<?= $_SESSION['user_id']?>">Accueil</a>
               </li>
+
+              <?php if ($user->role == "roleUser"): ?>
+                <li class="<?= class_active('journal') ?>">
+                    <a href="?page=journal&id=<?= $_SESSION['user_id']?>">Journal de bord</a>
+                </li>
+              <?php endif; ?>
+
               <li class="dropdown <?= class_active('account') ?><?= class_active('update-account') ?>">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profil <span class="caret"></span></a>
                   <ul class="dropdown-menu">
