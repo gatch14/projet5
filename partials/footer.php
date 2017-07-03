@@ -17,7 +17,7 @@
             $("#my-calendar").zabuto_calendar(
             {
           ajax: {
-              url: "data.json",
+              url: "http://localhost/projet5/index.php?page=api&id=<?= $_GET['id'] ?>",
               modal: true
           },          
           cell_border: true,
