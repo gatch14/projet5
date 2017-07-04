@@ -27,8 +27,15 @@
 
     <div class="container">
 
-      <h2>Vos médecins enregistrés</h2>
-
+    	<h2>Vos médecins enregistrés</h2>
+    	<!-- affichage des médecins par mail -->
+		<?php		
+			foreach ($dataMedicRelation as $key) {
+				$medic = $usersDAO->findUserId($key->medic_id);
+				echo "<p>$medic->email<p>";
+			}
+		?>
+    	<!-- fin affichage des médecins par mail -->
     </div>
 
 </div>

@@ -106,7 +106,7 @@ if (!function_exists('emptyDesc'))
 
 
 
-// Si donnée de la bdd pour daily data pour le modal est vide
+// modif des couleurs des cases du calendrier
 if (!function_exists('className')) 
 {
 	function className($formPhysic, $formPsycho, $pain)

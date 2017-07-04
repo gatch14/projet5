@@ -72,9 +72,15 @@ if (isset($_POST['add-medic']))
 				exit();
 			}
 		}
-
 	}
 }
  
+// pour l affichage de la liste des médecins
+$relationsDAO = new RelationDAO;
+$dataMedicRelation = $relationsDAO->findAllMedicByUserId($user->id);
+$usersDAO = new UserDAO;
+
+
+
 //On inclut la vue
 include('views/add-medic.view.php');

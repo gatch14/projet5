@@ -16,14 +16,14 @@
         $(document).ready(function () {
             $("#my-calendar").zabuto_calendar(
             {
-          ajax: {
-              url: "http://localhost/projet5/index.php?page=api&id=<?= $_GET['id'] ?>",
-              modal: true
-          },          
-          cell_border: true,
-          today: true,
-          show_days: true,
-          language: "fr"
+              ajax: {
+                  url: "http://localhost/projet5/index.php?page=api&id=<?= $_GET['id'] ?>",
+                  modal: true
+              },          
+              cell_border: true,
+              today: true,
+              show_days: true,
+              language: "fr"
             });
         });
     </script>
