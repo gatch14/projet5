@@ -180,17 +180,33 @@
 	</div>
 <!-- Fin role user -->
 
-
+<!-- Debut role medic -->
 <?php elseif ($user->role == "roleMedic"): ?>
 	<div id="main-content">
 
 	    <div class="container">
 			
-		  <h1>Bonjour <?= echap($user->pseudo) ?></h1>
-		  <p>Role <?= echap($user->role) ?></p>
+			<h1>Bonjour <?= echap($user->pseudo) ?></h1>
+			<p>Role <?= echap($user->role) ?></p>
+
+			<!-- Début listing utilisateur du médecin -->
+			<?php
+				foreach ($dataUserRelation as $key) {
+					$userRelation = $usersDAO->findUserId($key->user_id);
+
+					echo "<p>$userRelation->email  <a href=\"http://localhost/projet5/index.php?page=journal&id=$userRelation->id\" target=\"_blank\">Voir ses données</a><p>";
+				}
+			?>
+			<!-- Fin listing utilisateur du médecin -->
+
 	    </div><!-- /.container -->
 
 	</div>
+<!-- Fin role medic -->
+
+
+
+
 <?php elseif  ($user->role == "roleAdmin"): ?>
 	<div id="main-content">
 

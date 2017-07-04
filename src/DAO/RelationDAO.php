@@ -70,5 +70,25 @@ class RelationDAO
 
 		return $data;
 	}
+
+		
+
+	//Trouve tous les medic pour un user
+	public function findAllUserByMedicId($medicId)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT *
+							FROM relation 
+							WHERE medic_id = :medic_id
+							");
+		$q->execute(array(
+			'medic_id' => $medicId
+			));
+
+		$data = $q->fetchAll(PDO::FETCH_OBJ);
+
+		return $data;
+	}
 	
 }

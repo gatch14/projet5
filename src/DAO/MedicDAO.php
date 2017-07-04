@@ -104,5 +104,20 @@ class MedicDAO
 					'token' => $medic->getToken()
 		));
 	}
+
+	//Trouve un role par id
+	public function findRoleById($id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT role FROM users WHERE id = ?");
+		$q->execute(array($id));
+
+		$data = $q->fetch(PDO::FETCH_OBJ);
+
+		$q->closeCursor();
+
+		return $data;
+	}
 	
 }

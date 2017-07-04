@@ -38,19 +38,6 @@
               </li>
               <li><a href="?page=logout">Se déconnecter</a></li>
 
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="account.php?id=<?= $_SESSION['user_id']?>">Compte</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="?page=logout">Se déconnecter</a></li>
-                  </ul>
-              </li>
-
             <?php else: ?>
               <li class="<?= class_active('login') ?>"><a href="?page=login">Login</a></li>
               <li class="<?= class_active('register') ?>"><a href="?page=register">Inscription</a></li>

@@ -3,13 +3,12 @@
 <?php include('partials/header.php'); ?>
 <?php include('partials/errors.php'); ?>
 
-<?php if ( $user->role == "roleUser"): ?>
-<!-- debut formulaire ajouter médecin -->
+<?php if ( $user->role == "roleUser" Or $user->role == "roleMedic"): ?>
 <div id="main-content">
 
     <div class="container">
 		
-	  <h1>Journal de bord</h1>
+	  <h1>Journal de bord <?= echap($user->pseudo) ?></h1>
 
 	  
 	<!-- define the calendar element -->
@@ -18,7 +17,6 @@
     </div><!-- /.container -->
 
 </div>
-<!-- fin formulaire profil user -->
 
 <?php else: ?>
 	<div id="main-content">
