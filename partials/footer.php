@@ -23,7 +23,7 @@
           cell_border: true,
           today: true,
           show_days: true,
-                language: "fr"
+          language: "fr"
             });
         });
     </script>

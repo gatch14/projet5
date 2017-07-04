@@ -90,3 +90,34 @@ if (!function_exists('logged'))
 		return isset($_SESSION['user_id']) || isset($_SESSION['pseudo']);
 	}		
 }
+
+// Si donnée de la bdd pour daily data pour le modal est vide
+if (!function_exists('emptyDesc')) 
+{
+	function emptyDesc($value)
+	{
+		if ($value == "") {
+			return "Aucune donnée";
+		} else {
+			return $value;
+		}
+	}
+}
+
+
+
+// Si donnée de la bdd pour daily data pour le modal est vide
+if (!function_exists('className')) 
+{
+	function className($formPhysic, $formPsycho, $pain)
+	{
+		$totalForm = $formPhysic + $formPsycho + $pain;
+		if ($totalForm > 11) {
+			return 'colorFormGood';
+		} elseif ($totalForm > 6) {
+			return 'colorFormMiddle';
+		} else {
+			return 'colorFormNotGood';
+		}
+	}
+}

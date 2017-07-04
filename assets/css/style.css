@@ -2,6 +2,22 @@ body {
     padding-top: 70px; 
 }
 
+.img-thumbnail {
+  width: 35px;
+  border: 0px;
+}
+
+.colorFormGood {
+  background-color: #23c336;
+}
+
+.colorFormMiddle {
+  background-color: #e78910;
+}
+
+.colorFormNotGood {
+  background-color: #e70909;
+}
 /*************
  PARSLEY CSS
 *************/

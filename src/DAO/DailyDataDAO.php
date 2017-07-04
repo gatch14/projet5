@@ -10,7 +10,22 @@ class DailyDataDAO
 	{
 		global $bdd;
 
-		$q = $bdd->prepare("SELECT DATE_FORMAT(daily_date, '%Y-%m-%d') as 'date' FROM daily_data 
+		$q = $bdd->prepare("SELECT  date_format(daily_date, '%Y-%m-%d') AS date, 
+									id,
+									physical_form,
+									psycho_form,
+									pain,
+									physical_form_desc,
+									psycho_form_desc,
+									pain_desc,
+									symptom,
+									symptom_desc,
+									lunch,
+									other,
+									other_city,
+									temperature,
+									weather
+							FROM daily_data 
 							WHERE user_id = :user_id
 							ORDER BY id DESC");
 		$q->execute(array(
