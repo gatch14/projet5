@@ -9,7 +9,7 @@
 
     <div class="container">
 		
-	  <h1>modif de profil</h1>
+	  <h1>Modifier votre profil</h1>
 
 	  <form id="form" method="post" class="well col-md-6">
 

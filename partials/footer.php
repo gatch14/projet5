@@ -19,7 +19,14 @@
               ajax: {
                   url: "<?= SITE_URL ?>api&id=<?= $_GET['id'] ?>",
                   modal: true
-              },          
+              },
+              legend: [
+                {type: "text", label: "Clic pour le détail", badge: "00"},
+                {type: "spacer"},          
+                {type: "text", label: "Pas bien"},
+                {type: "list", list: ["colorFormNotGood","colorFormMiddle","colorFormGood"]},
+                {type: "text", label: "Bien"}                
+              ],          
               cell_border: true,
               today: true,
               show_days: true,

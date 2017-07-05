@@ -189,7 +189,6 @@
 	    <div class="container">
 			
 			<h1>Bonjour <?= echap($user->pseudo) ?></h1>
-			<p>Role <?= echap($user->role) ?></p>
 
 			<!-- Début listing utilisateur du médecin -->
 			<?php
@@ -215,7 +214,6 @@
 	    <div class="container">
 		  <h1>Administration</h1>
 		  <h1>Bonjour <?= echap($user->pseudo) ?></h1>
-		  <p>Role <?= echap($user->role) ?></p>
 	    </div><!-- /.container -->
 
 	</div>
