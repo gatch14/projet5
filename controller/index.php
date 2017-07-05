@@ -1,16 +1,13 @@
 <?php
-/* C'est en tout début de fichier que l'on vérifie les autorisations. Les 
-news sont visibles par tous, mais si vous voulez en restreindre l'accès, c'est 
-ici que cela se passe. */
- 
-//On inclut le modèle
-//include(dirname(__FILE__).'/../modeles/news.php');
- 
-/* On effectue ici diverses actions, comme supprimer des news, par exemple. ;)
-Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'en rajouter. */
- 
-//On récupère les news
-//$news = recuperer_news();
- 
-//On inclut la vue
+
+require('model/functions.php');
+require('model/constants.php');
+use Acme\DAO\UserDAO;
+
+
+if (logged()) 
+{
+	$userDAO = new UserDAO;
+	$user = $userDAO->findUserId($_SESSION['user_id']);
+} 
 include('views/index.view.php');

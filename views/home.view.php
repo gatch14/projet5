@@ -143,6 +143,7 @@
 
 				    	<h2>Données pouvant etre utile</h2>
 						<form id="form" method="post" class="well col-md-6">
+				    	<div class="alert alert-info">Vous pouvez modifier les données jusque minuit.</div>
 
 						<!-- Champ symptome -->
 						<div class="form-group">

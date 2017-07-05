@@ -17,7 +17,7 @@
                 <a href="?page=home&id=<?= $_SESSION['user_id']?>">Accueil</a>
               </li>
 
-              <?php if ($user->role == "roleUser"): ?>
+              <?php if (logged() AND $user->role == "roleUser"): ?>
                 <li class="<?= class_active('journal') ?>">
                     <a href="?page=journal&id=<?= $_SESSION['user_id']?>">Journal de bord</a>
                 </li>
