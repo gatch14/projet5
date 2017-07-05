@@ -13,11 +13,11 @@ if (!empty($_GET['pseudo']) &&
 	$userDAO->isInBdd('pseudo', $_GET['pseudo'], 'users') &&
 	!empty($_GET['token'])) 
 {
-
+	$pseudo = $_GET['pseudo'];
+	$token = $_GET['token'];
 	$data = $userDAO->findPseudo($pseudo);
 
 	$token_verif = sha1($pseudo.$data->email.$data->password);
-
 	if ($token == $token_verif) 
 	{
 		$userDAO->activeUser($pseudo);

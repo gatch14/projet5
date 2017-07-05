@@ -6,4 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Acme\\DAO\\DailyDataDAO' => $baseDir . '/src/DAO/DailyDataDAO.php',
+    'Acme\\DAO\\MedicDAO' => $baseDir . '/src/DAO/MedicDAO.php',
+    'Acme\\DAO\\RelationDAO' => $baseDir . '/src/DAO/RelationDAO.php',
+    'Acme\\DAO\\UserDAO' => $baseDir . '/src/DAO/UserDAO.php',
+    'Acme\\Domain\\DailyData' => $baseDir . '/src/Domain/DailyData.php',
+    'Acme\\Domain\\Medic' => $baseDir . '/src/Domain/Medic.php',
+    'Acme\\Domain\\Person' => $baseDir . '/src/Domain/Person.php',
+    'Acme\\Domain\\User' => $baseDir . '/src/Domain/User.php',
+    'Acme\\Domain\\wMeteo' => $baseDir . '/src/Domain/wMeteo.php',
 );

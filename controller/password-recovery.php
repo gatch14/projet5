@@ -30,8 +30,10 @@ if(isset($_POST['recovery-password']))
 				require('templates/emails/reset-password.view.php');
 				$content = ob_get_clean();
 
-				$headers = 'MIME-Version: 1.0' . "\r\n";
-				$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+				$headers = 'From: "Journal de bord"<hostingf@web1.hosting1976.fr>'. "\r\n";
+				$headers .= 'Reply-to: "Webmaster" <hostingf@web1.hosting1976.fr>'. "\r\n"; 
+				$headers .= 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
 				mail($to, $subject, $content, $headers);
 

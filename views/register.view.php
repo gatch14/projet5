@@ -23,7 +23,7 @@
 
 		<!-- Champ email -->
 		<div class="form-group">
-			<label class="control-label" for="email">Adresse email:</label>
+			<label class="control-label" for="email">Adresse email (pas de hotmail, les mails n'arrivent pas):</label>
 			<input type="email" value="<?= input_data('email') ?>" class="form-control" name="email" id="email" required="required">
 		</div>
 

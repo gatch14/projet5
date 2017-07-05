@@ -23,7 +23,7 @@ use Acme\DAO\MedicDAO;
 			$userDAO = new UserDAO;
 
 			//controle pseudo mini 3 caractères
-			if(mb_strlen($pseudo) < 3)
+			if(mb_strlen(echap($pseudo)) < 3)
 			{
 				$errors[] = "Il faut 3 caractères minimum pour le pseudo";
 			}
@@ -48,7 +48,7 @@ use Acme\DAO\MedicDAO;
 			}
 
 			//controle pseudo deja utilisé
-			if($userDAO->isInBdd('pseudo', $pseudo, 'users'))
+			if($userDAO->isInBdd('pseudo', echap($pseudo), 'users'))
 			{
 				$errors[] = "Pseudo déja utilisé";
 			}
@@ -65,7 +65,7 @@ use Acme\DAO\MedicDAO;
 				//$options = array('cost' => 9);
 				$password = password_hash($password, PASSWORD_BCRYPT);
 
-				$token = sha1($pseudo.$email.$password);
+				$token = sha1(echap($pseudo).$email.$password);
 
 				if ($role == "roleMedic") {
 					$medic = new Medic;
@@ -80,7 +80,7 @@ use Acme\DAO\MedicDAO;
 					} else 
 					{
 
-						$medic->setPseudo($pseudo);
+						$medic->setPseudo(echap($pseudo));
 						$medic->setEmail($email);
 						$medic->setPassword($password);
 						$medic->setToken($token);
@@ -91,7 +91,7 @@ use Acme\DAO\MedicDAO;
 				} else
 				{					
 					$user = new User();
-					$user->setPseudo($pseudo);
+					$user->setPseudo(echap($pseudo));
 					$user->setEmail($email);
 					$user->setPassword($password);
 					$user->setRole($role);
@@ -108,8 +108,10 @@ use Acme\DAO\MedicDAO;
 				require('templates/emails/activation.view.php');
 				$content = ob_get_clean();
 
-				$headers = 'MIME-Version: 1.0' . "\r\n";
-				$headers = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+				$headers = 'From: "Journal de bord"<hostingf@web1.hosting1976.fr>'. "\r\n";
+				$headers .= 'Reply-to: "Webmaster" <hostingf@web1.hosting1976.fr>'. "\r\n"; 
+				$headers .= 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 				mail($to, $subject, $content, $headers);
 

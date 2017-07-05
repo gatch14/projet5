@@ -43,14 +43,14 @@ if (isset($_POST['daily-form']))
 		//creation daily data
 		$DailyData = new DailyData();
 		$DailyData->setUser_id($user->id);
-		$DailyData->setOther_city($other_city);
+		$DailyData->setOther_city(echap($other_city));
 		$DailyData->setDaily_date(date('Y-m-d'));
 		$DailyData->setPhysical_form($physicalForm);
-		$DailyData->setPhysical_form_desc($physicalFormDesc);
+		$DailyData->setPhysical_form_desc(echap($physicalFormDesc));
 		$DailyData->setPsycho_form($psychologicalForm);
-		$DailyData->setPsycho_form_desc($psychologicalFormDesc);
+		$DailyData->setPsycho_form_desc(echap($psychologicalFormDesc));
 		$DailyData->setPain($pain);
-		$DailyData->setPain_desc($painDesc);
+		$DailyData->setPain_desc(echap($painDesc));
 		$DailyData->setTemperature($temperature);
 		$DailyData->setWeather($weather);
 
@@ -91,10 +91,10 @@ if (isset($_POST['daily-form-desc']))
 	extract($_POST);
 	$DailyData = new DailyData();
 	$DailyData->setId($user_daily_data->id);
-	$DailyData->setSymptom($symptom);
-	$DailyData->setSymptom_desc($symptom_desc);
-	$DailyData->setLunch($lunch);
-	$DailyData->setOther($other);
+	$DailyData->setSymptom(echap($symptom));
+	$DailyData->setSymptom_desc(echap($symptom_desc));
+	$DailyData->setLunch(echap($lunch));
+	$DailyData->setOther(echap($other));
 	$userDAO->updateDailyData($DailyData);
 
 	message_flash("Vos données ont été enregistrées, merci!", 'success');

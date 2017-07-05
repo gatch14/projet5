@@ -30,7 +30,7 @@ if (isset($_POST['add-medic']))
 
 		$MedicDao = new MedicDAO;
 		$RelationDAO = new RelationDAO;
-		// on vérifie dans la bdd si nom du medecin est present
+		// on vérifie dans la bdd si email du medecin est present
 		$medic = $MedicDao->medicInBdd($addMedic);
 		$medicData = $MedicDao->findMedicByEmail($email);
 		// si present on fait la relation

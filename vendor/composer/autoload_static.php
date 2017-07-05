@@ -20,11 +20,24 @@ class ComposerStaticInit047f653b2cf12a5f38ad9db94deda698
         ),
     );
 
+    public static $classMap = array (
+        'Acme\\DAO\\DailyDataDAO' => __DIR__ . '/../..' . '/src/DAO/DailyDataDAO.php',
+        'Acme\\DAO\\MedicDAO' => __DIR__ . '/../..' . '/src/DAO/MedicDAO.php',
+        'Acme\\DAO\\RelationDAO' => __DIR__ . '/../..' . '/src/DAO/RelationDAO.php',
+        'Acme\\DAO\\UserDAO' => __DIR__ . '/../..' . '/src/DAO/UserDAO.php',
+        'Acme\\Domain\\DailyData' => __DIR__ . '/../..' . '/src/Domain/DailyData.php',
+        'Acme\\Domain\\Medic' => __DIR__ . '/../..' . '/src/Domain/Medic.php',
+        'Acme\\Domain\\Person' => __DIR__ . '/../..' . '/src/Domain/Person.php',
+        'Acme\\Domain\\User' => __DIR__ . '/../..' . '/src/Domain/User.php',
+        'Acme\\Domain\\wMeteo' => __DIR__ . '/../..' . '/src/Domain/wMeteo.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit047f653b2cf12a5f38ad9db94deda698::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit047f653b2cf12a5f38ad9db94deda698::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit047f653b2cf12a5f38ad9db94deda698::$classMap;
 
         }, null, ClassLoader::class);
     }

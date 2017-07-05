@@ -132,6 +132,7 @@
 				<textarea class="form-control"  placeholder="Vous pouvez détailler ici" name="painDesc" rows="3"><?= input_data('painDesc') ?></textarea>
 			</div>
 
+			<div class="alert alert-danger">Important !!! Une fois validé, ce formulaire ne sera plus modifiable.</div>
 			<input type="submit" class="btn btn-primary" value="Ajouter forme du jour" name="daily-form">
 			</form>
 

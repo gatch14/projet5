@@ -3,12 +3,12 @@
 <?php include('partials/header.php'); ?>
 <?php include('partials/errors.php'); ?>
 
-<?php if ( $user->role == "roleUser" Or $user->role == "roleMedic"): ?>
+<?php if ( $user->role == "roleUser" Or $medicRole->role == "roleMedic"): ?>
 <div id="main-content">
 
     <div class="container">
 		
-	  <h1>Journal de bord <?= echap($user->pseudo) ?></h1>
+	  <h1>Journal de bord</h1>
 
 	  
 	<!-- define the calendar element -->

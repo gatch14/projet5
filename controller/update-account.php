@@ -25,13 +25,13 @@ if (isset($_POST['update-account-roleUser']))
 
 	$updateUser = new User();
 	$updateUser->setId($_SESSION['user_id']);
-	$updateUser->setName($name);
-	$updateUser->setNickname($nickname);
-	$updateUser->setCity($city);
+	$updateUser->setName(echap($name));
+	$updateUser->setNickname(echap($nickname));
+	$updateUser->setCity(echap($city));
 	$updateUser->setSexe($sexe);
 	$updateUser->setBirthday($day, $month, $year);
-	$updateUser->setMaladie($maladie);
-	$updateUser->setTraitement($traitement);
+	$updateUser->setMaladie(echap($maladie));
+	$updateUser->setTraitement(echap($traitement));
 	$userDAO->updateUser($updateUser);
 
 	message_flash("Votre profil a été mis à jour", 'success');
@@ -45,10 +45,10 @@ if (isset($_POST['update-account-roleMedic']))
 
 	$updateMedic = new Medic();
 	$updateMedic->setId($_SESSION['user_id']);
-	$updateMedic->setName($name);
-	$updateMedic->setNickname($nickname);
-	$updateMedic->setCity($city);
-	$updateMedic->setSpeciality($speciality);
+	$updateMedic->setName(echap($name));
+	$updateMedic->setNickname(echap($nickname));
+	$updateMedic->setCity(echap($city));
+	$updateMedic->setSpeciality(echap($speciality));
 
 
 	$MedicDAO = new MedicDAO;
