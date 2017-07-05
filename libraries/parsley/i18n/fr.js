@@ -1,7 +1,7 @@
 // Validation errors messages for Parsley
-import Parsley from '../parsley';
+//import Parsley from '../parsley';
 
-Parsley.addMessages('fr', {
+window.Parsley.addMessages('fr', {
   defaultMessage: "Cette valeur semble non valide.",
   type: {
     email:        "Cette valeur n'est pas une adresse email valide.",
@@ -26,4 +26,4 @@ Parsley.addMessages('fr', {
   equalto:        "Cette valeur devrait être identique."
 });
 
-Parsley.setLocale('fr');
+window.Parsley.setLocale('fr');
