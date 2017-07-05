@@ -221,4 +221,5 @@ class UserDAO
 					'token' => $user->getToken()
 		));
 	}
+
 }

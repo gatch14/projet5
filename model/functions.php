@@ -121,3 +121,33 @@ if (!function_exists('className'))
 		}
 	}
 }
+
+// retourne selected dans liste deorulante
+if (!function_exists('userSexe')) 
+{
+	function userSexe($value, $sexe)
+	{
+		if ( $value == $sexe) {
+			return "selected";
+		} else
+		{
+			return "";
+		}
+	}
+}
+
+
+
+// retourne selected dans liste deorulante
+if (!function_exists('userDay')) 
+{
+	function userDay($value, $valueBdd)
+	{
+		if ( $value == $valueBdd) {
+			return "selected";
+		} else
+		{
+			return "";
+		}
+	}
+}

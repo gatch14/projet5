@@ -35,9 +35,9 @@
 		<div class="form-group">
 			<label class="control-label" for="sexe">Sexe</label>
 			<select name="sexe">
-				<option selected>Votre choix</option>
-				<option value="man">Homme</option>
-				<option value="woman">Femme</option>
+				<option value="" <?= userSexe( "" , $user->sexe)?>>Votre choix</option>
+				<option value="man" <?= userSexe( "man" , $user->sexe)?>>Homme</option>
+				<option value="woman" <?= userSexe( "woman" , $user->sexe)?>>Femme</option>
 			</select>
 		</div>
 
