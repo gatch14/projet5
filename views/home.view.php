@@ -190,15 +190,19 @@
 			
 			<h1>Bonjour <?= echap($user->pseudo) ?></h1>
 
+
+			<div class="list-group col-md-4">
+			<h3>La liste de vos patients</h3>
 			<!-- Début listing utilisateur du médecin -->
 			<?php
 				foreach ($dataUserRelation as $key) {
 					$userRelation = $usersDAO->findUserId($key->user_id);
 
-					echo "<p>$userRelation->email  <a href=\"http://localhost/projet5/index.php?page=journal&id=$userRelation->id\" target=\"_blank\">Voir ses données</a><p>";
+					echo "<a href=\"http://localhost/projet5/index.php?page=journal&id=$userRelation->id\" target=\"_blank\" class=\"list-group-item list-group-item-action\" title='Cliquer pour voir les statistiques de se patient'>$userRelation->name  $userRelation->nickname  $userRelation->email  </a>";
 				}
 			?>
 			<!-- Fin listing utilisateur du médecin -->
+			</div>
 
 	    </div><!-- /.container -->
 
