@@ -8,11 +8,18 @@
 
     <div class="container">
 		
-	  <h1>Journal de bord</h1>
+	  <h1 class="text-center">Journal de bord</h1>
 
 	  
 	<!-- define the calendar element -->
 	<div id="my-calendar" class="col-md-6"></div>
+	
+	<!-- define the graph element -->
+	<div class="chart-container col-md-6">
+		<p class="titleGraph text-center">Les 7 derniers jours</p>
+	    <canvas id="myChart7"></canvas>
+	</div>
+
 
     </div><!-- /.container -->
 

@@ -35,5 +35,29 @@
         });
     </script>
 
+    <!-- chart script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <script>
+    var ctx = document.getElementById("myChart7");
+    var myChart7 = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: [ "Bien","Moyen","Mauvais","Pas de donnée"],
+            datasets: [{
+
+            labels: [ "Bien","Moyen","Mauvais","Pas de donnée"],
+                data: [<?= $FormGood ?>, <?= $FormMiddle ?>, <?= $FormNotGood ?>, <?= 7 - $compteur ?>],
+                backgroundColor: [
+                    '#23c336',
+                    '#e78910',
+                    '#e70909',
+                    '#E5E5E5'
+                ]
+            }]
+        }
+    });
+    </script>
+
   </body>
 </html>

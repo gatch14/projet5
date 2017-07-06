@@ -18,6 +18,16 @@ body {
 .colorFormNotGood {
   background-color: #e70909;
 }
+
+
+.chart-container {
+  margin: auto;
+  width: 400px;
+}
+
+.titleGraph {
+  margin-bottom: 0px;
+}
 /*************
  PARSLEY CSS
 *************/
