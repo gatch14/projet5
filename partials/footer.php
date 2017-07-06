@@ -35,7 +35,7 @@
         });
     </script>
 
-    <!-- chart script -->
+    <!-- chart.js script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
     <!-- 7 days chart script -->

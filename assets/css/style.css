@@ -41,6 +41,16 @@ body {
 .titleGraph {
   margin-bottom: 0px;
 }
+
+.addMedicActive-danger:hover{
+  color: #a94442;
+  background-color: #ebcccc;
+}
+
+.addMedicActive-success:hover{
+  color: #3c763d;
+  background-color: #d0e9c6;
+}
 /*************
  PARSLEY CSS
 *************/

@@ -136,8 +136,6 @@ if (!function_exists('userSexe'))
 	}
 }
 
-
-
 // retourne selected dans liste deorulante
 if (!function_exists('userDay')) 
 {
@@ -148,6 +146,20 @@ if (!function_exists('userDay'))
 		} else
 		{
 			return "";
+		}
+	}
+}
+
+// retourne danger ou success si medecin est active
+if (!function_exists('medicActive')) 
+{
+	function medicActive($value)
+	{
+		if ( $value == 1) {
+			return "success";
+		} else
+		{
+			return "danger";
 		}
 	}
 }
