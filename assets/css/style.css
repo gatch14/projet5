@@ -21,8 +21,21 @@ body {
 
 
 .chart-container {
-  margin: auto;
+  display: flex;
   width: 400px;
+  height: 400px;
+}
+
+.chart7 {
+  margin-left: auto;
+  margin-right: auto;
+  align-items: flex-start;
+}
+
+.chart-container30 {
+  margin: auto;
+  width: 500px;
+  height: 500px;
 }
 
 .titleGraph {

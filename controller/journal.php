@@ -18,8 +18,8 @@ if ( ($_SESSION['user_id'] == $_GET['id'])
 	$user = $userDAO->findUserId($_SESSION['user_id']);
 
 
-	$data7days = new DailyDataDAO;
-	$datas7 = $data7days->findAllDataByUserIdLast7Days($_GET['id']);
+	$datadays = new DailyDataDAO;
+	$datas7 = $datadays->findAllDataByUserIdLast7Days($_GET['id']);
 	$compteur = 0;
 	$FormGood = 0;
 	$FormMiddle = 0;
@@ -36,6 +36,26 @@ if ( ($_SESSION['user_id'] == $_GET['id'])
 			$FormNotGood ++;
 		}
 	}
+
+	$datas30 = $datadays->findAllDataByUserIdLast30Days($_GET['id']);
+	$compteur30 = 0;
+	$FormGood30 = 0;
+	$FormMiddle30 = 0;
+	$FormNotGood30 = 0;
+	foreach ($datas30 as $key) {
+		$total = $key->physical_form + $key->psycho_form + $key->pain;
+		$compteur30 ++;
+
+		if ($total > 11) {
+			$FormGood30 ++;
+		} elseif ($total > 6) {
+			$FormMiddle30 ++;
+		} else {
+			$FormNotGood30 ++;
+		}
+	}
+
+
 } else
 {
 		header('Location: index.php');

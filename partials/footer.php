@@ -38,6 +38,7 @@
     <!-- chart script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
+    <!-- 7 days chart script -->
     <script>
     var ctx = document.getElementById("myChart7");
     var myChart7 = new Chart(ctx, {
@@ -48,6 +49,28 @@
 
             labels: [ "Bien","Moyen","Mauvais","Pas de donnée"],
                 data: [<?= $FormGood ?>, <?= $FormMiddle ?>, <?= $FormNotGood ?>, <?= 7 - $compteur ?>],
+                backgroundColor: [
+                    '#23c336',
+                    '#e78910',
+                    '#e70909',
+                    '#E5E5E5'
+                ]
+            }]
+        }
+    });
+    </script>
+
+    <!-- 30 days chart script -->
+    <script>
+    var ctx = document.getElementById("myChart30");
+    var myChart30 = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: [ "Bien","Moyen","Mauvais","Pas de donnée"],
+            datasets: [{
+
+            labels: [ "Bien","Moyen","Mauvais","Pas de donnée"],
+                data: [<?= $FormGood30 ?>, <?= $FormMiddle30 ?>, <?= $FormNotGood30 ?>, <?= 30 - $compteur30 ?>],
                 backgroundColor: [
                     '#23c336',
                     '#e78910',
