@@ -11,6 +11,8 @@
 		
 	  <h1>Ajouter un médecin</h1>
 
+	  <?php include('partials/flash.php'); ?>
+	  
 	  <form id="form" method="post" class="well col-md-6">
 
 		<!-- Champ email -->
@@ -19,7 +21,7 @@
 			<input type="email" class="form-control" name="email" id="email" required="required">
 		</div>
 
-		<input type="submit" class="btn btn-primary" value="Ajouter un médecin" name="add-medic">
+		<input type="submit" class="btn btn-primary daily-form" value="Ajouter un médecin" name="add-medic">
 
       </form>
 

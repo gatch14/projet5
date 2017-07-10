@@ -47,7 +47,7 @@ if($_GET['pseudo'] && $_GET['token'])
 
 					message_flash("Modification ok!", 'success');
 
-					header('Location: '.SITE_URL.'login');
+					header('Location: index.php');
 					exit();
 				}
 

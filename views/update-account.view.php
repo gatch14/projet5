@@ -11,6 +11,8 @@
 		
 	  <h1>Modifier votre profil</h1>
 
+	  <?php include('partials/flash.php'); ?>
+
 	  <form id="form" method="post" class="well col-md-6">
 
 		<!-- Champ nom -->
@@ -101,7 +103,7 @@
 		</div>
 		<?php endif; ?>
 
-		<input type="submit" class="btn btn-primary" value="Modifier votre profil" name="update-account-<?= $user->role ?>">
+		<input type="submit" class="btn btn-primary daily-form" value="Modifier votre profil" name="update-account-<?= $user->role ?>">
 
       </form>
 

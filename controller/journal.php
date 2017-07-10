@@ -7,16 +7,20 @@ use Acme\Domain\User;
 use Acme\DAO\UserDAO;
 use Acme\DAO\MedicDAO;
 use Acme\DAO\DailyDataDAO;
+use Acme\DAO\RelationDAO;
 
 $MedicDAO = new MedicDAO;
 $medicRole = $MedicDAO->findRoleById($_SESSION['user_id']);
+$relation = new RelationDAO;
+$testRelation = $relation->relationInBdd($_GET['id'], $_SESSION['user_id']);
 
 if ( ($_SESSION['user_id'] == $_GET['id']) 
-	OR ($medicRole->role == "roleMedic")) 
+	OR ($medicRole->role == "roleMedic" AND $testRelation)) 
 {
+
+
 	$userDAO = new UserDAO;
 	$user = $userDAO->findUserId($_SESSION['user_id']);
-
 
 	$datadays = new DailyDataDAO;
 	$datas7 = $datadays->findAllDataByUserIdLast7Days($_GET['id']);

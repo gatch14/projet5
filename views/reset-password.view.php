@@ -8,9 +8,11 @@
 		
 	  <h1>Réinitialiser votre mot de passe</h1>
 
-	  <?php
-	  	include('partials/errors.php');
-	  ?>
+			<?php
+				include('partials/errors.php');
+			?>
+
+			<?php include('partials/flash.php'); ?>
 
       <form is="form" method="post" class="well col-md-6">
 
@@ -26,7 +28,7 @@
 			<input type="password" class="form-control" name="password_confirm" id="password_confirm" required="required" data-parsley-equalto="#password">
 		</div>
 
-		<input type="submit" class="btn btn-primary" value="Changer mon mot de passe" name="new-password">
+		<input type="submit" class="btn btn-primary daily-form" value="Changer mon mot de passe" name="new-password">
 
       </form>
 

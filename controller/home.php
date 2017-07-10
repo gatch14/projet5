@@ -7,6 +7,7 @@ use Acme\Domain\DailyData;
 use Acme\Domain\wMeteo;
 use Acme\DAO\UserDAO;
 use Acme\DAO\RelationDAO;
+use Acme\Domain\User;
 
 
 
@@ -107,6 +108,11 @@ if (isset($_POST['daily-form-desc']))
 $relationsDAO = new RelationDAO;
 $dataUserRelation = $relationsDAO->findAllUserByMedicId($user->id);
 $usersDAO = new UserDAO;
+
+
+// affichage liste des users
+$usersList = new UserDAO;
+$dataUsersList = $usersList->findAllUsers();
 
 require('views/home.view.php');
 

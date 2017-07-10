@@ -55,7 +55,7 @@ if (isset($_POST['update-account-roleMedic']))
 	$MedicDAO->updateMedic($updateMedic);
 
 	message_flash("Votre profil a été mis à jour", 'success');
-	header('Location: '.SITE_URL.'account&id='.$user->id);
+	header('Location: '.SITE_URL.'update-account&id='.$user->id);
 	exit();
 }
  

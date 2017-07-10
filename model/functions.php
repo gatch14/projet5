@@ -163,3 +163,51 @@ if (!function_exists('medicActive'))
 		}
 	}
 }
+
+//class bg-color
+if (!function_exists('bgColor')) 
+{
+	function bgColor()
+	{
+
+		if ( !empty($_GET['page']) ) 
+		{
+			return "-not-index";
+		} else
+		{
+			return "";
+		}
+	}
+}
+
+//id banner juste sur l index.php
+if (!function_exists('idBanner')) 
+{
+	function idBanner()
+	{
+
+		if ( empty($_GET['page']) ) 
+		{
+			return "banner";
+		} else
+		{
+			return "";
+		}
+	}
+}
+
+//ferme balise div et section si c est pas la page d index
+if (!function_exists('notIndex')) 
+{
+	function notIndex()
+	{
+
+		if ( !empty($_GET['page']) ) 
+		{
+			return "</div></section>";
+		} else
+		{
+			return "";
+		}
+	}
+}

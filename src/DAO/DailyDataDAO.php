@@ -78,5 +78,19 @@ class DailyDataDAO
 
 		return $data;
 	}
+
+	//trouve toutes les données
+	public function findAllDailyDatas()
+	{
+		global $bdd;
+
+		$q = $bdd->query("SELECT * FROM daily_data");
+
+		$data = $q->fetchAll(PDO::FETCH_OBJ);
+
+		$q->closeCursor();
+
+		return $data;
+	}
 	
 }

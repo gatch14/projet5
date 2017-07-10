@@ -4,28 +4,30 @@
 
 <div id="main-content">
 
-    <div class="container">
+	<div class="container">
 		
-	  <h1>Récupération du mot de passe</h1>
+		<h1>Récupération du mot de passe</h1>
 
-	  <?php
-	  	include('partials/errors.php');
-	  ?>
+			<?php
+				include('partials/errors.php');
+			?>
+
+			<?php include('partials/flash.php'); ?>
 
 
-      <form id="form" method="post" class="well col-md-6">
+		<form id="form" method="post" class="well col-md-6">
 
-		<!-- Champ mail -->
-		<div class="form-group">
-			<label class="control-label" for="email">Adresse email:</label>
-			<input type="email" value="<?= input_data('email') ?>" class="form-control" name="email" id="email" required="required">
-		</div>
+			<!-- Champ mail -->
+			<div class="form-group">
+				<label class="control-label" for="email">Adresse email:</label>
+				<input type="email" value="<?= input_data('email') ?>" class="form-control" name="email" id="email" required="required">
+			</div>
 
-		<input type="submit" class="btn btn-primary" value="Réinitialisation mot de passe" name="recovery-password">
+			<input type="submit" class="btn btn-primary daily-form" value="Réinitialisation mot de passe" name="recovery-password">
 
-      </form>
+		</form>
 
-    </div><!-- /.container -->
+	</div><!-- /.container -->
 
 </div>
 

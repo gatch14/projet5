@@ -222,4 +222,19 @@ class UserDAO
 		));
 	}
 
+
+	//trouve tous les utilisateurs
+	public function findAllUsers()
+	{
+		global $bdd;
+
+		$q = $bdd->query("SELECT * FROM users");
+
+		$data = $q->fetchAll(PDO::FETCH_OBJ);
+
+		$q->closeCursor();
+
+		return $data;
+	}
+
 }

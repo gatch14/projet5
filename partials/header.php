@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Christophe Gatelet">
+    <meta name="description" content="Controler votre santé avec le journal de bord">
 
     <title>
       <?php
@@ -13,11 +14,13 @@
           : 'Journal de bord M-A-I';
       ?>
     </title>
+    
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <!-- Bootstrap core CSS -->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="libraries/uploadify/uploadify.css">
   
   <!-- include the calendar js and css files -->
   <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.min.css">
@@ -29,7 +32,8 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <?php include('partials/nav.php'); ?>
-<?php include('partials/flash.php'); ?>
+<!--  ferme balise div et section si c est pas la page d index-->
+<?= notIndex() ?>;
