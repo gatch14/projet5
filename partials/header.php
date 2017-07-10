@@ -10,7 +10,7 @@
       <?php
         echo isset($title)
           ? $title
-          : 'Quelque bout de code préparé';
+          : 'Journal de bord M-A-I';
       ?>
     </title>
 
