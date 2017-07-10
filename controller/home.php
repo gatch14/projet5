@@ -17,6 +17,7 @@ if ($_SESSION['user_id'] == $_GET['id'])
 	$user = $userDAO->findUserId($_SESSION['user_id']);	
 	$daily_data = $userDAO->dailyDataInBdd(date('Y-m-d'), $user->id);
 	$user_daily_data = $userDAO->findDailyDataId(date('Y-m-d'), $user->id);
+
 } else
 {
 		header('Location: index.php');

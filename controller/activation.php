@@ -23,7 +23,7 @@ if (!empty($_GET['pseudo']) &&
 		$userDAO->activeUser($pseudo);
 		message_flash("Merci, votre compte est maintenant activé, vous pouvez vous connecter!", 'success');
 
-		header('Location: '.SITE_URL.'login');
+		header('Location: index.php');
 		exit();
 	} else
 	{

@@ -47,23 +47,23 @@
 		<div class="form-group">
 			<label class="control-label" for="age">Votre date de naissance:</label>
 			<select name="day">
-				<option selected>Jour</option>
+				<option >Jour</option>
 				<?php
-					for($day = 1; $day <= 31; $day++)
+					for($day = 01; $day <= 31; $day++)
 					{
 				?>
-				<option value="<?= $day ?>"><?= $day ?></option>
+				<option value="<?= $day ?>" <?= userSexe( sprintf("%02d", $day) , $userbirthdayDay->dateDay)?> ><?= $day ?></option>
 				<?php
 					}
 				?>				
 			</select>
 			<select name="month">
-				<option selected>Mois</option>
+				<option>Mois</option>
 				<?php
 					for($month = 1; $month <= 12; $month++)
 					{
 				?>
-				<option value="<?= $month ?>"><?= $month ?></option>
+				<option value="<?= $month ?>" <?= userSexe( sprintf("%02d", $month) , $userbirthdayMonth->dateMonth)?>><?= $month ?></option>
 				<?php
 					}
 				?>				
@@ -74,7 +74,7 @@
 					for($year = 1920; $year <= date('Y'); $year++)
 					{
 				?>
-				<option value="<?= $year ?>"><?= $year ?></option>
+				<option value="<?= $year ?>" <?= userSexe( $year , $userbirthdayYear->dateYear)?>><?= $year ?></option>
 				<?php
 					}
 				?>				

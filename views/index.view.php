@@ -34,7 +34,7 @@
             <div class="col-md-4 col-sm-4">
                 <h2 class="ser-title">Fonctionnement</h2>
                 <hr class="botm-line">
-                <p>Le but est de permettre un suivi simple de votre état de santé au jour le jour en remplissant au moins le premier formulaire ( mois de 5 minutes par jour ). Le but est de rester simple le plus possible pour éviter toute contrainte tout en essayant de récolter les bonnes données pouvant être utile.</p>
+                <p>Le but est de permettre un suivi simple de votre état de santé au jour le jour en remplissant au moins le premier formulaire ( mois de 5 minutes par jour ). Le but est de rester simple le plus possible pour éviter toute contrainte tout en essayant de récolter les bonnes données pouvant être utiles.</p>
             </div>
             <div class="col-md-4 col-sm-4">
                 <div class="service-info">
@@ -63,7 +63,7 @@
                     </div>
                     <div class="icon-info">
                         <h4>Se rassurer</h4>
-                        <p>Certains symptômes peuvent revenir régulièrement et faire stresser l'utilisateur. La plupart du temps ses symptômes sont mineurs mais font quand même stresser le patient. Avec une trace du symptôme vous allez pouvoir vous souvenir que c'était mineur et éviter d'augmenter votre stress qui est néfaste.</p>
+                        <p>Certains symptômes peuvent revenir régulièrement et faire stresser l'utilisateur. La plupart du temps ces symptômes sont mineurs mais font quand même stresser le patient. Avec une trace du symptôme vous allez pouvoir vous souvenir que c'était mineur et éviter d'augmenter votre stress qui est néfaste.</p>
                     </div>
                 </div>
                 <div class="service-info">

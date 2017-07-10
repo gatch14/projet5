@@ -12,7 +12,7 @@
 
 
 			<?php
-			include('partials/errors.php');
+				include('partials/errors.php');
 			?>
 
 			<?php include('partials/flash.php'); ?>

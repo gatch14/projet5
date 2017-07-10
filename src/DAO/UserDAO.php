@@ -57,8 +57,11 @@ class UserDAO
 	{
 		global $bdd;
 
-		$q = $bdd->prepare("SELECT $user_id FROM daily_data WHERE daily_date = ?");
-		$q->execute(array($date));
+		$q = $bdd->prepare("SELECT id FROM daily_data 
+							WHERE daily_date = :daily_date AND user_id = :user_id");
+		$q->execute(array(
+						'daily_date' => $date,
+						'user_id' => $user_id));
 
 		$count = $q->rowCount();
 		
@@ -236,5 +239,59 @@ class UserDAO
 
 		return $data;
 	}
+
+	//Trouve le jour d anniversair epour un id
+	public function findBirthdayDayByUserId($id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT  date_format(birthday, '%d') as dateDay
+							FROM users 
+							WHERE id = :id
+							");
+		$q->execute(array(
+			'id' => $id
+			));
+
+		$data = $q->fetch(PDO::FETCH_OBJ);
+
+		return $data;
+	}	
+
+	//Trouve le mois d anniversair epour un id
+	public function findBirthdayMonthByUserId($id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT  date_format(birthday, '%m') as dateMonth
+							FROM users 
+							WHERE id = :id
+							");
+		$q->execute(array(
+			'id' => $id
+			));
+
+		$data = $q->fetch(PDO::FETCH_OBJ);
+
+		return $data;
+	}
+
+	//Trouve l année d anniversair epour un id
+	public function findBirthdayYearByUserId($id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT  date_format(birthday, '%Y') as dateYear
+							FROM users 
+							WHERE id = :id
+							");
+		$q->execute(array(
+			'id' => $id
+			));
+
+		$data = $q->fetch(PDO::FETCH_OBJ);
+
+		return $data;
+	}		
 
 }

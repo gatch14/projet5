@@ -136,20 +136,6 @@ if (!function_exists('userSexe'))
 	}
 }
 
-// retourne selected dans liste deorulante
-if (!function_exists('userDay')) 
-{
-	function userDay($value, $valueBdd)
-	{
-		if ( $value == $valueBdd) {
-			return "selected";
-		} else
-		{
-			return "";
-		}
-	}
-}
-
 // retourne danger ou success si medecin est active
 if (!function_exists('medicActive')) 
 {
@@ -205,6 +191,22 @@ if (!function_exists('notIndex'))
 		if ( !empty($_GET['page']) ) 
 		{
 			return "</div></section>";
+		} else
+		{
+			return "";
+		}
+	}
+}
+
+
+
+// retourne selected dans liste deorulante
+if (!function_exists('userDay')) 
+{
+	function userDay($value, $valueBdd)
+	{
+		if ( $value == $valueBdd) {
+			return "selected";
 		} else
 		{
 			return "";

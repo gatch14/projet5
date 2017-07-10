@@ -25,7 +25,7 @@
                         <a href="?page=journal&id=<?= $_SESSION['user_id']?>">Journal de bord</a>
                       </li>
                     <?php endif; ?>
-
+<?php if ($user->role != "roleAdmin"): ?>
                     <li class="dropdown <?= class_active('account') ?><?= class_active('update-account') ?>">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profil <span class="caret"></span></a>
                       <ul class="dropdown-menu">
@@ -35,13 +35,14 @@
                          </li>
                        <?php endif; ?>
 
-                        <?php if ($user->role != "roleAdmin"): ?>
+                        
                        <li>
                          <a href="?page=update-account&id=<?= $_SESSION['user_id']?>">Modifier mon profil</a>
                        </li>
-                       <?php endif; ?>
                      </ul>
                    </li>
+                   
+                       <?php endif; ?>
                    <li><a href="?page=logout">Se déconnecter</a></li>
 
                  <?php else: ?>

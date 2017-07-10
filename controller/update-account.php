@@ -13,6 +13,10 @@ if ($_SESSION['user_id'] == $_GET['id'])
 {
 	$userDAO = new UserDAO;
 	$user = $userDAO->findUserId($_SESSION['user_id']);
+	$userbirthdayDay = $userDAO->findBirthdayDayByUserId($_SESSION['user_id']);
+	$userbirthdayMonth = $userDAO->findBirthdayMonthByUserId($_SESSION['user_id']);
+	$userbirthdayYear = $userDAO->findBirthdayYearByUserId($_SESSION['user_id']);
+
 } else
 {
 		header('Location: index.php');
