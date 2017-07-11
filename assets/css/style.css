@@ -69,6 +69,10 @@ hr.botm-line {
     margin: 20px 0 20px 0;
 }
 
+nav {
+  height: 60px;
+}
+
 /***************************************
 banner
 ***************************************/
@@ -190,6 +194,7 @@ banner
     text-align: center;
     position: absolute;
     bottom: 25px;
+    left: 50%;
     font-size: 38px;
     color: #fff;
     margin: 0 auto;
@@ -812,6 +817,19 @@ textarea.parsley-error {
   }
 
   .navbar-responsive{
+  }
+
+  .icon{
+    display: none;
+  }
+
+  .icon-info h4 {
+    padding-bottom: 1px;
+  }
+
+  h4 {
+    margin-top: 20px;
+    margin-bottom: 1px;
   }
 }
 

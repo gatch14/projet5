@@ -200,7 +200,7 @@ if (!function_exists('notIndex'))
 
 
 
-// retourne selected dans liste deorulante
+// retourne selected dans liste deorulante pour les jours
 if (!function_exists('userDay')) 
 {
 	function userDay($value, $valueBdd)
@@ -213,7 +213,7 @@ if (!function_exists('userDay'))
 		}
 	}
 }
-// retourne selected dans liste deorulante
+// retourne selected dans liste deorulante pour user active
 if (!function_exists('userActive')) 
 {
 	function userActive($value, $userActive)

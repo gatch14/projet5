@@ -53,4 +53,3 @@ if(isset($_POST['recovery-password']))
 
 
 require('views/password-recovery.view.php');
-
