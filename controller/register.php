@@ -81,7 +81,7 @@ use Acme\DAO\MedicDAO;
 					{
 
 						$medic->setPseudo(echap($pseudo));
-						$medic->setEmail($email);
+						$medic->setEmail(strtolower($email));
 						$medic->setPassword($password);
 						$medic->setToken($token);
 
@@ -92,7 +92,7 @@ use Acme\DAO\MedicDAO;
 				{					
 					$user = new User();
 					$user->setPseudo(echap($pseudo));
-					$user->setEmail($email);
+					$user->setEmail(strtolower($email));
 					$user->setPassword($password);
 					$user->setRole($role);
 					$user->setToken($token);

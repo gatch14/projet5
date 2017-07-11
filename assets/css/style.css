@@ -82,6 +82,7 @@ banner
 .navbar-default {
     background-color: #fff;
     padding: 20px 0;
+    -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
 .navbar-default {
@@ -267,8 +268,6 @@ about
     height: 40px;
     padding-top: 6px;
     background: #0cb8b6;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
     border-radius: 50%;
     color: #fff;
     text-align: center;
@@ -309,7 +308,8 @@ testimonial
     background: #fff;
     padding: 14px 24px;
     margin-bottom: 20px;
-    box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.18);
+    -webkit-box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.18);
+            box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.18);
     position: relative;
 }
 .testi-info a {
@@ -352,7 +352,8 @@ testimonial
 .testi-details::before {
     content: '';
     position: absolute;
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
     width: 0px;
     height: 0px;
     bottom: -30px;
@@ -361,7 +362,8 @@ testimonial
     border-width: 15px;
     border-color: transparent;
     z-index: -1;
-    box-shadow: 3px -13px 5px 0px rgba(0, 0, 0, 0.18);
+    -webkit-box-shadow: 3px -13px 5px 0px rgba(0, 0, 0, 0.18);
+            box-shadow: 3px -13px 5px 0px rgba(0, 0, 0, 0.18);
     border-left: 0;
 }
 /***************************************
@@ -687,8 +689,12 @@ footer
 }
 
 .flashMessage {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: absolute;
   top: 90px;
   left: 0px;
@@ -774,11 +780,18 @@ textarea.parsley-error {
   visibility: hidden;
 }
 
-@media all and (max-device-width: 992px){
+@media only screen and (max-width: 992px){
   .journal {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .chart-container {
     width: 500px;
@@ -786,13 +799,15 @@ textarea.parsley-error {
   }
 }
 
-@media all and (max-device-width: 768px){
+@media only screen and (max-width: 768px){
   #myNavbarResponsive {
     background-color: #426F79;
     width: 100%;
   }
   #resp {
     visibility: visible;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 
@@ -800,9 +815,7 @@ textarea.parsley-error {
   }
 }
 
-}
-
-@media all and (max-device-width: 600px){
+@media only screen and (max-width: 600px){
   .modal-dialog{
     width: 450px;
   }

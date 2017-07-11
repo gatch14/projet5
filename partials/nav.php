@@ -52,37 +52,40 @@
 
               </ul>
             </div>
-<!-- menu responsive--><div id="resp">
-<div class="collapse navbar-collapse navbar-right" id="myNavbarResponsive">
-  <ul class="nav navbar-nav navbar-right navbar-responsive">
+            <!-- menu responsive--><div id="resp">
+            <div class="collapse navbar-collapse navbar-right" id="myNavbarResponsive">
+              <ul class="nav navbar-nav navbar-right navbar-responsive">
 
-    <?php if (logged()): ?> 
-      <li class="<?= class_active('home') ?>">
-        <a href="?page=home&id=<?= $_SESSION['user_id']?>" class="text-center">Accueil</a>
-      </li>
+                <?php if (logged()): ?> 
+                  <li class="<?= class_active('home') ?>">
+                    <a href="?page=home&id=<?= $_SESSION['user_id']?>" class="text-center">Accueil</a>
+                  </li>
 
-      <?php if (logged() AND $user->role == "roleUser"): ?>
-        <li class="<?= class_active('journal') ?>">
-          <a href="?page=journal&id=<?= $_SESSION['user_id']?>" class="text-center">Journal de bord</a>
-        </li>
-      <?php endif; ?>
+                  <?php if ( $user->role == "roleUser"): ?>
+                    <li class="<?= class_active('journal') ?>">
+                      <a href="?page=journal&id=<?= $_SESSION['user_id']?>" class="text-center">Journal de bord</a>
+                    </li>
+                  <?php endif; ?>
 
-      <?php if ($user->role == "roleUser"): ?>
-        <li class="<?= class_active('add-medic') ?>">
-         <a href="?page=add-medic&id=<?= $_SESSION['user_id']?>" class="text-center">Ajout médecin</a>
-       </li>
-     <?php endif; ?>
+                  <?php if ($user->role == "roleUser"): ?>
+                    <li class="<?= class_active('add-medic') ?>">
+                     <a href="?page=add-medic&id=<?= $_SESSION['user_id']?>" class="text-center">Ajout médecin</a>
+                   </li>
+                 <?php endif; ?>
 
-     <li class="<?= class_active('update-account') ?>">
-       <a href="?page=update-account&id=<?= $_SESSION['user_id']?>" class="text-center">Mon profil</a>
-     </li>
- <li><a href="?page=logout" class="text-center">Se déconnecter</a></li>
-   </ul>
+                 <li class="<?= class_active('update-account') ?>">
+                   <a href="?page=update-account&id=<?= $_SESSION['user_id']?>" class="text-center">Mon profil</a>
+                 </li>
+                 <li><a href="?page=logout" class="text-center">Se déconnecter</a></li>
+               <?php else: ?>
+                  <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Connexion</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Inscription</a></li>
+               </ul>
 
-</div>
-<?php endif; ?>
+             </div>
+           <?php endif; ?>
 
-<!-- fin menu responsive-->
+           <!-- fin menu responsive-->
 
           </div>
         </div>

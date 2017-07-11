@@ -84,7 +84,23 @@ class DailyDataDAO
 	{
 		global $bdd;
 
-		$q = $bdd->query("SELECT * FROM daily_data");
+		$q = $bdd->query("SELECT  date_format(daily_date, '%Y-%m-%d') as date, 
+									id,
+									user_id,
+									physical_form,
+									psycho_form,
+									pain,
+									physical_form_desc,
+									psycho_form_desc,
+									pain_desc,
+									symptom,
+									symptom_desc,
+									lunch,
+									other,
+									other_city,
+									temperature,
+									weather 
+						FROM daily_data");
 
 		$data = $q->fetchAll(PDO::FETCH_OBJ);
 
