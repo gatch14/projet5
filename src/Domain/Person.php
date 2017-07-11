@@ -26,6 +26,8 @@ class Person
 
     private $sexe;
 
+    private $active;
+
 
 
     public function getId() {
@@ -191,6 +193,21 @@ class Person
         $this->month = $month;
         $this->year = $year;
         $this->birthday = $year.'-0'.$month.'-0'.$day;
+
+        return $this;
+
+    }
+
+    public function getActive() {
+
+        return $this->active;
+
+    }
+
+
+    public function setActive($active) {
+
+        $this->active = $active;
 
         return $this;
 

@@ -294,4 +294,33 @@ class UserDAO
 		return $data;
 	}		
 
+	//Trouve un role par id
+	public function findRoleById($id)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("SELECT role FROM users WHERE id = ?");
+		$q->execute(array($id));
+
+		$data = $q->fetch(PDO::FETCH_OBJ);
+
+		$q->closeCursor();
+
+		return $data;
+	}	
+
+	//Update profil actif utilisateur
+	public function updateActiveUser($user)
+	{
+		global $bdd;
+
+		$q = $bdd->prepare("UPDATE users
+							SET active = :active
+							WHERE id = :id");
+		$q->execute(array(
+					'id' => $user->getId(),
+					'active' => $user->getActive()
+		));
+	}
+
 }

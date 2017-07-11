@@ -262,6 +262,13 @@
 		<div class="container">
 			<h1>Administration</h1>
 
+
+			<?php
+				include('partials/errors.php');
+			?>
+
+			<?php include('partials/flash.php'); ?>
+			
 			<div class="row">
 				<div class=" col-sm-8 col-xs-12">
 					<div class="main-box clearfix">
@@ -301,7 +308,7 @@
 											<span class=\"userList\">$userInBdd->role</span>
 										</td>
 										<td>
-											<a href=\"#\" class=\"table-link\" title=\"Voir les statistiques\">
+											<a href=\"?page=admin-update-account&id=$userInBdd->id\" class=\"table-link\" title=\"Voir le profil\">
 												<span class=\"fa-stack infoUserIcon\">
 													<i class=\"fa fa-square fa-stack-2x\"></i>
 													<i class=\"fa fa-search-plus fa-stack-1x fa-inverse\"></i>

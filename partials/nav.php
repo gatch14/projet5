@@ -73,9 +73,11 @@
                    </li>
                  <?php endif; ?>
 
+<?php if ($user->role != "roleAdmin"): ?>
                  <li class="<?= class_active('update-account') ?>">
                    <a href="?page=update-account&id=<?= $_SESSION['user_id']?>" class="text-center">Mon profil</a>
                  </li>
+                 <?php endif; ?>
                  <li><a href="?page=logout" class="text-center">Se déconnecter</a></li>
                <?php else: ?>
                   <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Connexion</a></li>

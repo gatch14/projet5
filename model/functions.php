@@ -213,3 +213,16 @@ if (!function_exists('userDay'))
 		}
 	}
 }
+// retourne selected dans liste deorulante
+if (!function_exists('userActive')) 
+{
+	function userActive($value, $userActive)
+	{
+		if ( $value == $userActive) {
+			return "selected";
+		} else
+		{
+			return "";
+		}
+	}
+}
