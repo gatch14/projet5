@@ -1,7 +1,6 @@
 <?php $title = "Page de profil"; ?>
 
 <?php include('partials/header.php'); ?>
-<?php include('partials/errors.php'); ?>
 
 <?php if ( ($user->role == "roleUser") OR ($user->role == "roleMedic") ): ?>
 <!-- debut formulaire profil user -->
@@ -12,6 +11,7 @@
 	  <h1>Modifier votre profil</h1>
 
 	  <?php include('partials/flash.php'); ?>
+	  <?php include('partials/errors.php'); ?>
 
 	  <form id="form" method="post" class="well col-md-6">
 
@@ -114,16 +114,7 @@
 
 
 
-<?php elseif  ($user->role == "roleAdmin"): ?>
-	<div id="main-content">
 
-	    <div class="container">
-		  <h1>Administration profil</h1>
-		  <h1>Bonjour <?= echap($user->pseudo) ?></h1>
-		  <p>Role <?= echap($user->role) ?></p>
-	    </div><!-- /.container -->
-
-	</div>
 <?php else: ?>
 	<div id="main-content">
 

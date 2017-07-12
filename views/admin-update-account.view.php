@@ -12,7 +12,7 @@
 	  <h1>Profil de <?= $adminUserUpdate->pseudo ?></h1>
 
 	  <?php include('partials/flash.php'); ?>
-	<?php include('partials/errors.php'); ?>
+	  <?php include('partials/errors.php'); ?>
 	  
 	  <form id="admin-update-user" method="post" class="well col-sm-8 col-xs-12">
 

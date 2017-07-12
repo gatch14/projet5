@@ -99,15 +99,15 @@
 
 					<!-- Champ douleur -->
 					<div class="form-group">
-						<label class="control-label col-xs-12 text-center" for="pain"><i class="fa fa-info-circle iconInfo" title="Note de 1 à 5. 1 étant le plus bas"></i> Douleur(obligatoire):</label>
+						<label class="control-label col-xs-12 text-center" for="pain"><i class="fa fa-info-circle iconInfo" title="Note de 1 à 5. 1 étant le plus bas"></i> Douleur(obligatoire, 1:rien, 5:très mal):</label>
 						<div class="form-check form-check-inline col-xs-2 col-xs-offset-1">
 							<label class="form-check-label">
-								<input class="form-check-input" type="radio" name="pain" value="1"> 1
+								<input class="form-check-input" type="radio" name="pain" value="5"> 1
 							</label>
 						</div>
 						<div class="form-check form-check-inline col-xs-2">
 							<label class="form-check-label">
-								<input class="form-check-input" type="radio" name="pain" value="2"> 2
+								<input class="form-check-input" type="radio" name="pain" value="4"> 2
 							</label>
 						</div>
 						<div class="form-check form-check-inline col-xs-2">
@@ -117,12 +117,12 @@
 						</div>
 						<div class="form-check form-check-inline col-xs-2">
 							<label class="form-check-label">
-								<input class="form-check-input" type="radio" name="pain" value="4"> 4
+								<input class="form-check-input" type="radio" name="pain" value="2"> 4
 							</label>
 						</div>
 						<div class="form-check form-check-inline col-xs-2">
 							<label class="form-check-label">
-								<input class="form-check-input" type="radio" name="pain" value="5"> 5
+								<input class="form-check-input" type="radio" name="pain" value="1"> 5
 							</label>
 						</div>
 					</div>

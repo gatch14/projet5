@@ -1,7 +1,6 @@
 <?php $title = "Ajouter un médecin"; ?>
 
 <?php include('partials/header.php'); ?>
-<?php include('partials/errors.php'); ?>
 
 <?php if ( $user->role == "roleUser"): ?>
 <!-- debut formulaire ajouter médecin -->
@@ -12,6 +11,7 @@
 	  <h1>Ajouter un médecin</h1>
 
 	  <?php include('partials/flash.php'); ?>
+	  <?php include('partials/errors.php'); ?>
 	  
 	  <form id="form" method="post" class="well col-md-6">
 
